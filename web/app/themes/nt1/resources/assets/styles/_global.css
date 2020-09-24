@@ -23,3 +23,35 @@ a {
         margin: 0 auto;
     }
 }
+
+.section-heading {
+    @apply bg-gray-1;
+    border-bottom: 1px solid #1f1f21;
+    height: 16px;
+    position: relative;
+    margin-top: 70px;
+    margin-bottom: 70px;
+
+    &-title-wrap {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        padding-left: 10px;
+        padding-right: 10px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &-title {
+        @apply bg-gray-1;
+        font-size: 1.5rem;
+        font-weight: 300;
+        letter-spacing: 0.58px;
+        line-height: 32px;
+        text-transform: uppercase;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

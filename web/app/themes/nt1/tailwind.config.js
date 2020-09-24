@@ -15,6 +15,8 @@ module.exports = {
         open: ['Open Sans', ...defaultTheme.fontFamily.sans],
       },
       spacing: {
+        '4px': '4px',
+        '10px': '10px',
         '30px': '30px',
         '60px': '60px',
         '70px': '70px',
@@ -42,6 +44,9 @@ module.exports = {
         '30px': '1.875rem',
         '40px': '2.5rem',
         '60px': '3.75rem',
+      },
+      height: {
+        '200px': '200px',
       },
       maxWidth: {
         '200px': '200px',
