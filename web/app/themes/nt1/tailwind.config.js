@@ -16,6 +16,8 @@ module.exports = {
       },
       spacing: {
         '30px': '30px',
+        '60px': '60px',
+        '70px': '70px',
       },
       colors: {
         black: {
@@ -31,11 +33,20 @@ module.exports = {
         },
       },
       fontSize: {
+        '12px': '0.75rem',
+        '13px': '0.812rem',
         '14px': '0.875rem',
+        '18px': '1.125rem',
+        '20px': '1.25rem',
+        '24px': '1.5rem',
+        '30px': '1.875rem',
+        '40px': '2.5rem',
+        '60px': '3.75rem',
       },
       maxWidth: {
         '200px': '200px',
         '300px': '300px',
+        '537px': '537px',
       },
     },
   },

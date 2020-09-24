@@ -58,6 +58,8 @@ add_action('after_setup_theme', function () {
     add_theme_support('soil-relative-urls');
     add_theme_support('custom-logo');
 
+	add_image_size( 'xlarge', 1920, 1920 );
+
     /**
      * Enable plugins to manage the document title
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#title-tag

@@ -3,6 +3,10 @@ body {
     font-size: 16px;
 }
 
+a {
+    @apply transition ease-in-out duration-150;
+}
+
 .container {
     @apply px-4;
     width: 100%;
@@ -11,5 +15,11 @@ body {
 
     @screen xl {
         @apply px-0;
+    }
+
+    &-big {
+        width: 100%;
+        max-width: 1366px;
+        margin: 0 auto;
     }
 }

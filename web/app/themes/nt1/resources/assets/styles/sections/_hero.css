@@ -1,0 +1,27 @@
+.section-hero {
+    padding-top: 200px;
+    padding-bottom: 0;
+
+    @screen md {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    &-cta {
+        @apply bg-gray-1;
+        padding: 30px;
+
+        @screen md {
+            @apply px-70px py-60px;
+        }
+
+        @screen lg {
+            max-width: 765px;
+        }
+    }
+
+    .container-big {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
