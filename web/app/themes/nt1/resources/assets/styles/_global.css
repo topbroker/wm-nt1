@@ -1,3 +1,15 @@
 body {
+    @apply font-montserrat text-black-1 bg-gray-1;
+    font-size: 16px;
+}
 
+.container {
+    @apply px-4;
+    width: 100%;
+    max-width: 1135px;
+    margin: 0 auto;
+
+    @screen xl {
+        @apply px-0;
+    }
 }
