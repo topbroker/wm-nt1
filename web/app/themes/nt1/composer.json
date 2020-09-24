@@ -40,6 +40,7 @@
   },
   "require": {
     "php": "^7.2.5",
+    "mwdelaney/sage-advanced-custom-fields": "^1.5",
     "roots/acorn": "^1.0.1"
   },
   "require-dev": {

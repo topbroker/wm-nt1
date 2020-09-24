@@ -14,6 +14,9 @@ module.exports = {
         montserrat: ['Montserrat', ...defaultTheme.fontFamily.serif],
         open: ['Open Sans', ...defaultTheme.fontFamily.sans],
       },
+      spacing: {
+        '30px': '30px',
+      },
       colors: {
         black: {
           1: '#1f1f21',
@@ -24,6 +27,7 @@ module.exports = {
         },
         gray: {
           1: '#f0f0f0',
+          2: '#dedede',
         },
       },
       fontSize: {
@@ -37,4 +41,7 @@ module.exports = {
   },
   variants: {},
   plugins: [],
+  corePlugins: {
+    container: false,
+  },
 }
