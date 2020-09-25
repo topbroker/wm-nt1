@@ -15,7 +15,8 @@ use function Roots\asset;
  */
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('sage/vendor.js', asset('scripts/vendor.js')->uri(), ['jquery'], null, true);
-    wp_enqueue_script('sage/app.js', asset('scripts/app.js')->uri(), ['sage/vendor.js', 'jquery'], null, true);
+    wp_enqueue_script('swiper-js', get_stylesheet_directory_uri() . '/resources/assets/scripts/swiper-bundle.min.js', ['jquery'], null, true);
+    wp_enqueue_script('sage/app.js', asset('scripts/app.js')->uri(), ['sage/vendor.js', 'jquery', 'swiper-js'], null, true);
 
     wp_add_inline_script('sage/vendor.js', asset('scripts/manifest.js')->contents(), 'before');
 
@@ -23,7 +24,8 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script('comment-reply');
     }
 
-    wp_enqueue_style('sage/app.css', asset('styles/app.css')->uri(), false, null);
+    wp_enqueue_style('swiper-css', get_stylesheet_directory_uri() . '/resources/assets/styles/swiper-bundle.min.css', false, null);
+    wp_enqueue_style('sage/app.css', asset('styles/app.css')->uri(), ['swiper-css'], null);
 }, 100);
 
 /**

@@ -1,0 +1,44 @@
+.swiper-container {
+    &-logos {
+        .swiper-wrapper {
+            align-items: center;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            width: 140px;
+
+            @screen md {
+                width: auto;
+            }
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            content: '';
+            width: 8px;
+            height: 17px;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .swiper-button-prev:after {
+            content: '';
+            background-image: url('../images/arrow_left.svg');
+        }
+
+        .swiper-button-next {
+            right: -6px;
+        }
+
+        .swiper-button-prev {
+            left: -6px;
+        }
+
+        .swiper-button-next:after {
+            content: '';
+            background-image: url('../images/arrow_right.svg');
+        }
+    }
+}

@@ -24,6 +24,7 @@ class App extends Composer
     {
         return [
             'siteName' => $this->siteName(),
+	        'logos' => $this->testimonial_logos(),
         ];
     }
 
@@ -35,5 +36,17 @@ class App extends Composer
     public function siteName()
     {
         return get_bloginfo('name', 'display');
+    }
+
+    public function testimonial_logos()
+    {
+    	$logos = get_field('logos', 'options');
+    	$logos_arr = [];
+
+    	foreach ($logos as $logo) {
+		    $logos_arr[] = wp_get_attachment_image_url($logo, 'medium');
+	    }
+
+    	return $logos_arr;
     }
 }
