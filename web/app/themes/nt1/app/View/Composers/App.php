@@ -25,6 +25,7 @@ class App extends Composer
         return [
             'siteName' => $this->siteName(),
 	        'logos' => $this->testimonial_logos(),
+	        'testimonial_items' => $this->testimonial_items(),
         ];
     }
 
@@ -48,5 +49,10 @@ class App extends Composer
 	    }
 
     	return $logos_arr;
+    }
+
+    public function testimonial_items()
+    {
+    	return get_field('testimonial_items', 'options');
     }
 }

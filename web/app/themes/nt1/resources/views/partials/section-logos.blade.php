@@ -1,5 +1,5 @@
 @if(!empty($logos))
-    <div class="section-testimonials my-70px">
+    <div class="section-logos my-70px">
         <div class="container">
             <div class="section-heading">
                 <div class="section-heading-title-wrap">

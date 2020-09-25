@@ -19,4 +19,11 @@ $(document).ready(() => {
     },
   });
 
+  new Swiper('.swiper-container-testimonials', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+
 });

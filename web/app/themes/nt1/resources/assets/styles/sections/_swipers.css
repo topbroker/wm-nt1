@@ -41,4 +41,14 @@
             background-image: url('../images/arrow_right.svg');
         }
     }
+
+    &-testimonials {
+        padding-bottom: 56px;
+
+        .swiper-pagination-bullet {
+            @apply bg-red-1;
+            width: 12px;
+            height: 12px;
+        }
+    }
 }
