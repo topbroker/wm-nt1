@@ -10,7 +10,7 @@
                 @foreach($posts as $post)
                     <a href="{{ get_permalink($post) }}" class="blog-post relative rounded-4px overflow-hidden">
                         @if($kam = get_field('kam', $post))
-                            <div class="inline-block absolute top-0 left-0 z-10 bg-brand-1 opacity-85 text-brand-2 uppercase text-14px px-4 py-1">
+                            <div class="inline-block absolute top-0 right-0 z-10 bg-blue-1 opacity-85 text-white uppercase text-14px px-6 py-2 mt-4">
                                 {{ $kam['label'] }}
                             </div>
                         @endif
