@@ -3,6 +3,7 @@
 @import "tailwindcss/utilities";
 
 @import "_global.css";
+@import "_filters.css";
 
 @import "partials/_header.css";
 @import "partials/_footer.css";
@@ -12,3 +13,4 @@
 @import "sections/_hero.css";
 @import "sections/_testimonials.css";
 @import "sections/_swipers.css";
+@import "sections/_categories.css";

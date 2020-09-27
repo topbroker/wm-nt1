@@ -16,6 +16,7 @@ module.exports = {
       },
       spacing: {
         '4px': '4px',
+        '5px': '5px',
         '10px': '10px',
         '30px': '30px',
         '60px': '60px',
@@ -47,6 +48,9 @@ module.exports = {
         '30px': '1.875rem',
         '40px': '2.5rem',
         '60px': '3.75rem',
+      },
+      minHeight: {
+        '140px': '140px',
       },
       height: {
         '200px': '200px',

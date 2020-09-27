@@ -70,3 +70,28 @@ new Roots\Acorn\Bootloader();
 if (function_exists('acf_add_options_page')) {
 	acf_add_options_page();
 }
+
+add_action('init', function () {
+
+	add_rewrite_rule(
+		'komanda/([A-Za-z0-9-]+)/?$',
+		'index.php?pagename=komanda&member=$matches[1]',
+		'top'
+	);
+
+	add_rewrite_rule(
+		'nt/([A-Za-z0-9-]+)/?$',
+		'index.php?pagename=nt-objektai&retype=$matches[1]',
+		'top'
+	);
+
+	add_rewrite_rule(
+		'nt/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$',
+		'index.php?pagename=nt-objektai&retype=$matches[1]&reobject=$matches[2]',
+		'top'
+	);
+});
+
+//$topbroker = new \TopBroker\TopBrokerApi('3f67c759bf4fc791b', 'a5e79e85-9624-49c5-a9cc-261e270ff307');
+//
+//dd($topbroker->estates->getList([]));

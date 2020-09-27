@@ -1,0 +1,53 @@
+.filters {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @screen lg {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    &-labels {
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
+
+    &-label-wrap {
+        width: 100%;
+        max-width: 300px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        @screen lg {
+            max-width: 190px;
+        }
+
+        &-city {
+            max-width: 260px;
+        }
+    }
+
+    &-label {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 2px solid #454142;
+        padding-bottom: 5px;
+        max-width: 100%;
+    }
+
+    &-input-select {
+        margin-left: -4px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &-input-number {
+        max-width: 60px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
