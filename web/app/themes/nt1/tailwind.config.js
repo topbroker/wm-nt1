@@ -18,7 +18,10 @@ module.exports = {
         '4px': '4px',
         '5px': '5px',
         '10px': '10px',
+        '14px': '14px',
         '30px': '30px',
+        '38px': '38px',
+        '40px': '40px',
         '60px': '60px',
         '70px': '70px',
       },
@@ -33,9 +36,16 @@ module.exports = {
         gray: {
           1: '#f0f0f0',
           2: '#dedede',
+          3: '#e4e4e4',
         },
         blue: {
           1: '#465bf2',
+        },
+        yellow: {
+          1: '#f2d36b',
+        },
+        brown: {
+          1: '#454142',
         },
       },
       fontSize: {
@@ -53,6 +63,7 @@ module.exports = {
         '140px': '140px',
       },
       height: {
+        '160px': '160px',
         '200px': '200px',
       },
       maxWidth: {

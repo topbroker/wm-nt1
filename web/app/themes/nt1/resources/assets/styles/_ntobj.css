@@ -1,0 +1,41 @@
+.ntobj {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    &-inner {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #acaaaa;
+        margin-bottom: 10px;
+        line-height: 1;
+        padding-bottom: 9px;
+
+        &-left {
+            font-size: 24px;
+            font-weight: 700;
+            color: #454142;
+        }
+
+        &-right {
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+
+    &-addr {
+        color: #454142;
+        font-size: 12px;
+        margin-top: 16px;
+        display: flex;
+        justify-content: center;
+    }
+}

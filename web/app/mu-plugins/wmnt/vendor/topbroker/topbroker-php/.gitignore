@@ -1,0 +1,9 @@
+# Composer
+composer.phar
+composer.lock
+/vendor
+
+# Other
+/test
+/test/test.php
+.DS_Store
