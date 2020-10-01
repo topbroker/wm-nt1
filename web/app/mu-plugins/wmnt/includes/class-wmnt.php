@@ -162,7 +162,8 @@ class Wmnt {
 		$this->loader->add_action( 'template_include', $plugin_admin, 'template_include' );
 
 		$this->loader->add_filter('query_vars', $plugin_admin, 'query_vars');
-		$this->loader->add_filter('wpseo_title', $plugin_admin, 'wpseo_title', 10, 1);
+		$this->loader->add_filter('wpseo_title', $plugin_admin, 'wpseo_title');
+		$this->loader->add_filter('body_class', $plugin_admin, 'body_class');
 
 	}
 

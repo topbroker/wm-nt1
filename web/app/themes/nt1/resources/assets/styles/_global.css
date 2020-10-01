@@ -1,6 +1,10 @@
 body {
     @apply font-montserrat text-black-1 bg-gray-1;
     font-size: 16px;
+
+    &.reobj {
+        @apply bg-gray-2;
+    }
 }
 
 a {
@@ -29,8 +33,13 @@ a {
     border-bottom: 1px solid #1f1f21;
     height: 16px;
     position: relative;
-    margin-top: 70px;
-    margin-bottom: 70px;
+    margin-top: 40px;
+    margin-bottom: 53px;
+
+    @screen sm {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
 
     &-title-wrap {
         display: flex;

@@ -10,6 +10,9 @@
  * @subpackage Wmnt/admin
  */
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use TopBroker\TopBrokerApi;
 
 /**
@@ -42,6 +45,8 @@ class Wmnt_Admin {
 	 */
 	private $version;
 
+	private $topbroker;
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -54,6 +59,8 @@ class Wmnt_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+
+		$this->topbroker = new TopBrokerApi('3f67c759bf4fc791b', 'a5e79e85-9624-49c5-a9cc-261e270ff307');
 
 	}
 
@@ -76,7 +83,8 @@ class Wmnt_Admin {
 	{
 		$query_vars[] = 'retype';
 		$query_vars[] = 'reobj';
-		$query_vars[] = 'ntobjs';
+		$query_vars[] = 'reobj_data';
+		$query_vars[] = 'reobjs';
 
 		return $query_vars;
 	}
@@ -104,26 +112,72 @@ class Wmnt_Admin {
 
 		if (!empty($retype) && !empty($reobj)) {
 
-			set_query_var('reobj', 'changeme');
+			set_query_var('reobj_data', $this->set_reobj_data($reobj));
 
-			return get_template_directory() . '/resources/views/nt-obj.blade.php';
+			return get_template_directory() . '/resources/views/re-obj.blade.php';
 
 		}
 
 		if (!empty($retype)) {
 
-			set_query_var('ntobjs', $this->set_retype_data($retype));
+			set_query_var('reobjs', $this->set_retype_data($retype));
 
-			return get_template_directory() . '/resources/views/nt-objs.blade.php';
+			return get_template_directory() . '/resources/views/re-objs.blade.php';
 
 		}
 
 		return $template;
 	}
 
+	public function body_class($classes)
+	{
+		$retype = get_query_var( 'retype' );
+		$reobj = get_query_var( 'reobj' );
+
+		if (!empty($retype) && !empty($reobj)) {
+			$classes[] = 'reobj';
+		}
+
+		if (!empty($retype) && empty($reobj)) {
+			$classes[] = 'reobjs';
+		}
+
+		return $classes;
+	}
+
+	private function set_reobj_data($reobj)
+	{
+		$reobject_id = Arr::last(explode('-', $reobj));
+
+		if (empty($reobj) || !is_numeric($reobject_id)) {
+			return false;
+		}
+
+		$photos = Collection::make($this->topbroker->get("estates/{$reobject_id}/photos", []));
+		$estate = $this->topbroker->estates->getItem($reobject_id);
+		$features_collection = Collection::make($estate->{$estate->estate_type});
+		$estate_type_attributes = $this->topbroker->estates->getAttributes($estate->estate_type);
+
+		$features = $features_collection->filter(function($value, $key) {
+			return Str::startsWith($key, 'has_') && $value == true;
+		})->map(function($value, $key) use ($estate_type_attributes) {
+			return $estate_type_attributes->features->{$key};
+		});
+
+		return [
+			'data' => $estate,
+			'features' => $features,
+			'user' => $this->topbroker->users->getItem($estate->user_id),
+			'photos' => [
+				'main' => $photos->first(),
+				'thumbnails' => $photos->skip(1)->take(3),
+				'others' => $photos->skip(4),
+			],
+		];
+	}
+
 	private function set_retype_data($retype)
 	{
-		$topbroker = new TopBrokerApi('3f67c759bf4fc791b', 'a5e79e85-9624-49c5-a9cc-261e270ff307');
 		$page = (int) filter_var($_GET['page'] ?? 1, FILTER_SANITIZE_NUMBER_INT);
 		$per_page = 6;
 
@@ -154,9 +208,9 @@ class Wmnt_Admin {
 			'page' => $page,
 		];
 
-		$estates_count = $topbroker->estates->getCount($params);
-		$estates = $topbroker->estates->getList(array_merge($params, $paginate_params));
-		$statuses = $topbroker->get('estates/record_statuses', []);
+		$estates_count = $this->topbroker->estates->getCount($params);
+		$estates = $this->topbroker->estates->getList(array_merge($params, $paginate_params));
+		$statuses = $this->topbroker->get('estates/record_statuses', []);
 
 		return [
 			'estates' => $estates,
