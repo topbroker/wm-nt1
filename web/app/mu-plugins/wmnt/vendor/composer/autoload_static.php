@@ -19,6 +19,7 @@ class ComposerStaticInitffcf20dec64e875fb48f3f4335626d62
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '60799491728b879e74601d83e38b2cad' => __DIR__ . '/..' . '/illuminate/collections/helpers.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
+        '0fb314968533f5d9040cb770ac4a2e6e' => __DIR__ . '/..' . '/nyholm/append-query-string/src/include.php',
     );
 
     public static $prefixLengthsPsr4 = array (

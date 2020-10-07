@@ -76,11 +76,11 @@
             @endforeach
         </div>
         <div class="pagination flex items-center justify-center space-x-10px mt-40px">
-            @for($i = 1; $i <= get_query_var('ntobjs')['pages_count']; $i++)
-                <a href="#" class="flex items-center justify-center w-38px h-38px text-14px <?php echo ($i == get_query_var('ntobjs')['current_page']) ? 'bg-brown-1 text-white' : 'bg-gray-3' ?>">
-                    {{ $i }}
+            @foreach(get_query_var('reobjs')['pagination']['pages'] as $page)
+                <a href="{{ $page['url'] }}" class="flex items-center justify-center w-38px h-38px text-14px <?php echo ($page['current']) ? 'bg-brown-1 text-white' : 'bg-gray-3' ?>">
+                    {{ $page['page'] }}
                 </a>
-            @endfor
+            @endforeach
         </div>
     </div>
 @endsection

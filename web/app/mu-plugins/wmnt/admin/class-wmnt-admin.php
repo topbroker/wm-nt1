@@ -85,6 +85,8 @@ class Wmnt_Admin {
 		$query_vars[] = 'reobj';
 		$query_vars[] = 'reobj_data';
 		$query_vars[] = 'reobjs';
+		$query_vars[] = 'estate_types';
+		$query_vars[] = 'cities';
 
 		return $query_vars;
 	}
@@ -110,6 +112,13 @@ class Wmnt_Admin {
 		$retype = get_query_var( 'retype' );
 		$reobj = get_query_var( 'reobj' );
 
+		set_query_var('estate_types', [
+			'flat' => 'Butai',
+			'house' => 'Namai',
+			'site' => 'Sklypai',
+			'commercial' => 'Komercija',
+		]);
+
 		if (!empty($retype) && !empty($reobj)) {
 
 			set_query_var('reobj_data', $this->set_reobj_data($reobj));
@@ -118,9 +127,10 @@ class Wmnt_Admin {
 
 		}
 
-		if (!empty($retype)) {
+		if (!empty($retype) && empty($reobj)) {
 
 			set_query_var('reobjs', $this->set_retype_data($retype));
+			set_query_var('cities', $this->set_cities());
 
 			return get_template_directory() . '/resources/views/re-objs.blade.php';
 
@@ -143,6 +153,11 @@ class Wmnt_Admin {
 		}
 
 		return $classes;
+	}
+
+	private function set_cities()
+	{
+		return $this->topbroker->locations->getCities();
 	}
 
 	private function set_reobj_data($reobj)
@@ -183,7 +198,7 @@ class Wmnt_Admin {
 
 		$params = [
 			'estate_type' => [$this->get_estate_type_param($retype)],
-			'sort_by' => 'date',
+			'sort_by' => 'updated_at',
 			'sort_to' => 'desc',
 		];
 
@@ -203,20 +218,57 @@ class Wmnt_Admin {
 			];
 		}
 
+		$filter_params = array_filter(Arr::except($_GET, ['page']));
+
 		$paginate_params = [
 			'per_page' => $per_page,
 			'page' => $page,
 		];
 
-		$estates_count = $this->topbroker->estates->getCount($params);
-		$estates = $this->topbroker->estates->getList(array_merge($params, $paginate_params));
+		$estates_count = $this->topbroker->estates->getCount(array_merge($params, $filter_params));
+		$estates = $this->topbroker->estates->getList(array_merge($params, $filter_params, $paginate_params));
 		$statuses = $this->topbroker->get('estates/record_statuses', []);
+
+		$current_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+		$pages_count = (int) ceil($estates_count->records / $per_page);
+		$next_page = $page + 1;
+		$prev_page = $page - 1;
+
+		$query_string_next_page = http_build_query(['page' => $next_page]);
+		$query_string_prev_page = http_build_query(['page' => $prev_page]);
+		$next_link = append_query_string($current_url, $query_string_next_page, APPEND_QUERY_STRING_REPLACE_DUPLICATE);
+		$prev_link = append_query_string($current_url, $query_string_prev_page, APPEND_QUERY_STRING_REPLACE_DUPLICATE);
+
+		if ($pages_count < $next_page) {
+			$next_link = false;
+		}
+
+		if ($page <= 1) {
+			$prev_link = false;
+		}
+
+		$pages = [];
+
+		for($p = 1; $p <= $pages_count; $p++) {
+			$pages[] = [
+				'page' => $p,
+				'url' => append_query_string($current_url, http_build_query(['page' => $p]), APPEND_QUERY_STRING_REPLACE_DUPLICATE),
+				'current' => $page == $p,
+			];
+		}
+
+		$pagination = [
+			'pages_count' => $pages_count,
+			'current_page' => $page,
+			'pages' => $pages,
+			'next_link' => $next_link,
+			'prev_link' => $prev_link,
+		];
 
 		return [
 			'estates' => $estates,
 			'statuses' => $statuses,
-			'pages_count' => (int) ceil($estates_count->records / $per_page),
-			'current_page' => $page,
+			'pagination' => $pagination,
 		];
 	}
 

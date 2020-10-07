@@ -3,6 +3,7 @@
         "topbroker/topbroker-php": "^1.1",
         "php-http/guzzle6-adapter": "^2.0",
         "illuminate/collections": "^8.7",
-        "illuminate/support": "^8.7"
+        "illuminate/support": "^8.7",
+        "nyholm/append-query-string": "^0.1.1"
     }
 }

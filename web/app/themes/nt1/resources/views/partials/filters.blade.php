@@ -1,4 +1,4 @@
-<form action="" method="post">
+<form action="" method="get">
     <div class="flex flex-col lg:flex-row item-add lg:items-end ">
         <div class="filters-labels flex-1 flex flex-col lg:flex-row mb-6 lg:mb-0 items-center lg:items-end">
             <div class="filters-label-wrap mb-6 lg:mb-0 filters-label-wrap mb-6 lg:mb-0-city">
@@ -6,18 +6,11 @@
                     <span class="mb-2">Vieta</span>
                     <select name="city" class="filters-input-select">
                         <option value=""></option>
-                        <option value="">Vilnius</option>
-                        <option value="">Kaunas</option>
-                    </select>
-                </label>
-            </div>
-            <div class="filters-label-wrap mb-6 lg:mb-0">
-                <label class="filters-label">
-                    <span class="mb-2">Objekto tipas</span>
-                    <select name="category" class="filters-input-select">
-                        <option value=""></option>
-                        <option value="">Butas</option>
-                        <option value="">Sklypas</option>
+                        @foreach(get_query_var('cities') as $city)
+                            <option value="{{ $city->id }}" @if($city->id == filter_var($_GET['city'], FILTER_SANITIZE_NUMBER_INT)) selected @endif>
+                                {{ $city->name }}
+                            </option>
+                        @endforeach
                     </select>
                 </label>
             </div>
@@ -26,12 +19,12 @@
                 <div class="flex -mx-4">
                     <div class="px-4">
                         <label class="filters-label">
-                            <input type="number" min="100" step="100" name="price_from" class="filters-input-number">
+                            <input type="number" min="100" step="100" name="price_min" class="filters-input-number" value="{{ filter_var($_GET['price_min'], FILTER_SANITIZE_NUMBER_INT) }}">
                         </label>
                     </div>
                     <div class="px-4">
                         <label class="filters-label">
-                            <input type="number" min="100" step="100" name="price_to" class="filters-input-number">
+                            <input type="number" min="100" step="100" name="price_max" class="filters-input-number" value="{{ filter_var($_GET['price_max'], FILTER_SANITIZE_NUMBER_INT) }}">
                         </label>
                     </div>
                 </div>
@@ -41,12 +34,12 @@
                 <div class="flex -mx-4">
                     <div class="px-4">
                         <label class="filters-label">
-                            <input type="number" min="10" step="10" name="area_from" class="filters-input-number">
+                            <input type="number" min="10" step="10" name="area_min" class="filters-input-number" value="{{ filter_var($_GET['area_min'], FILTER_SANITIZE_NUMBER_INT) }}">
                         </label>
                     </div>
                     <div class="px-4">
                         <label class="filters-label">
-                            <input type="number" min="10" step="10" name="area_to" class="filters-input-number">
+                            <input type="number" min="10" step="10" name="area_max" class="filters-input-number" value="{{ filter_var($_GET['area_max'], FILTER_SANITIZE_NUMBER_INT) }}">
                         </label>
                     </div>
                 </div>

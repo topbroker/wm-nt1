@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21d3c85552f2115b76260d533ffc2cb3",
+    "content-hash": "08e374f7274290fa1faa2c29691b80a6",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -573,6 +573,45 @@
                 }
             ],
             "time": "2020-09-23T08:17:37+00:00"
+        },
+        {
+            "name": "nyholm/append-query-string",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nyholm/append_query_string.git",
+                "reference": "abc4d7fed96aed1c52410eba13e89d64f1dc8df1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nyholm/append_query_string/zipball/abc4d7fed96aed1c52410eba13e89d64f1dc8df1",
+                "reference": "abc4d7fed96aed1c52410eba13e89d64f1dc8df1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nyholm",
+                    "email": "tobias.nyholm@gmail.com"
+                }
+            ],
+            "description": "A simple function that lets you add a query string to an exising URL",
+            "time": "2020-02-01T13:05:14+00:00"
         },
         {
             "name": "paragonie/random_compat",

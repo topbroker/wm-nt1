@@ -38,7 +38,7 @@
                 <div class="flex flex-col sm:flex-row sm:space-x-30px">
                     <div class="flex-1">
                         <a href="{{ $reobj_data['photos']['main']->large_image_url }}" data-fancybox="gallery" class="block overflow-hidden mb-4 sm:mb-0 h-full max-h-520px">
-                            <img class="xl:object-cover xl:h-full" src="{{ $reobj_data['photos']['main']->large_image_url }}" alt="">
+                            <img class="xl:object-fit xl:object-top xl:h-full" src="{{ $reobj_data['photos']['main']->large_image_url }}" alt="">
                         </a>
                     </div>
                     <div class="flex-none w-full sm:w-164px flex sm:flex-col space-x-1 sm:space-x-0 sm:space-y-15px">
@@ -47,7 +47,7 @@
                                 <img class="object-cover h-full" src="{{ $thumbnail->image_url }}" alt="">
                             </a>
                         @endforeach
-                        @if(!empty($reobj_data['photos']['others']))
+                        @if(!$reobj_data['photos']['others']->isEmpty())
                             <a href="{{ \Illuminate\Support\Arr::first($reobj_data['photos']['others'])->large_image_url }}" data-fancybox="gallery" class="block h-80px sm:h-119px relative">
                                 <div class="absolute text-white text-26px w-full h-full flex items-center justify-center">
                                     <div class="absolute w-full h-full bg-black-2 opacity-50"></div>

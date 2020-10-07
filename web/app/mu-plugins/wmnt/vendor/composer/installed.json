@@ -586,6 +586,47 @@
         ]
     },
     {
+        "name": "nyholm/append-query-string",
+        "version": "0.1.1",
+        "version_normalized": "0.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Nyholm/append_query_string.git",
+            "reference": "abc4d7fed96aed1c52410eba13e89d64f1dc8df1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Nyholm/append_query_string/zipball/abc4d7fed96aed1c52410eba13e89d64f1dc8df1",
+            "reference": "abc4d7fed96aed1c52410eba13e89d64f1dc8df1",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.2"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^8.5"
+        },
+        "time": "2020-02-01T13:05:14+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nyholm",
+                "email": "tobias.nyholm@gmail.com"
+            }
+        ],
+        "description": "A simple function that lets you add a query string to an exising URL"
+    },
+    {
         "name": "paragonie/random_compat",
         "version": "v9.99.99",
         "version_normalized": "9.99.99.0",
