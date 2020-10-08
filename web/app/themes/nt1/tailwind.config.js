@@ -89,6 +89,7 @@ module.exports = {
       },
       width: {
         '164px': '164px',
+        '261px': '261px',
         '358px': '358px',
       },
       maxWidth: {

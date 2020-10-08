@@ -77,6 +77,12 @@ class Wmnt_Admin {
 			'index.php?retype=$matches[1]&reobj=$matches[2]',
 			'top'
 		);
+
+		add_rewrite_rule(
+			'komanda/([A-Za-z0-9-]+)/?$',
+			'index.php?retype=$matches[1]',
+			'top'
+		);
 	}
 
 	public function query_vars($query_vars)
@@ -87,6 +93,7 @@ class Wmnt_Admin {
 		$query_vars[] = 'reobjs';
 		$query_vars[] = 'estate_types';
 		$query_vars[] = 'cities';
+		$query_vars[] = 'tbuser';
 
 		return $query_vars;
 	}
@@ -95,6 +102,11 @@ class Wmnt_Admin {
 	{
 		$retype = get_query_var('retype');
 		$reobj = get_query_var( 'reobj' );
+		$tbuser = get_query_var( 'tbuser' );
+
+		if (!empty($tbuser)) {
+			return 'Komanda - ' .get_bloginfo('name');
+		}
 
 		if (!empty($retype) && !empty($reobj)) {
 			return ucwords($reobj) . ' - ' .get_bloginfo('name');
@@ -111,6 +123,7 @@ class Wmnt_Admin {
 	{
 		$retype = get_query_var( 'retype' );
 		$reobj = get_query_var( 'reobj' );
+		$tbuser = get_query_var( 'tbuser' );
 
 		set_query_var('estate_types', [
 			'flat' => 'Butai',
@@ -118,6 +131,14 @@ class Wmnt_Admin {
 			'site' => 'Sklypai',
 			'commercial' => 'Komercija',
 		]);
+
+		if (!empty($tbuser)) {
+
+			set_query_var('reobj_data', $this->set_tbuser_data());
+
+			return get_template_directory() . '/resources/views/tbuser.blade.php';
+
+		}
 
 		if (!empty($retype) && !empty($reobj)) {
 
@@ -189,6 +210,11 @@ class Wmnt_Admin {
 				'others' => $photos->skip(4),
 			],
 		];
+	}
+
+	private function set_tbuser_data()
+	{
+		return [];
 	}
 
 	private function set_retype_data($retype)
