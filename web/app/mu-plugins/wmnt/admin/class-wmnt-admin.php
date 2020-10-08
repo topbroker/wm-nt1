@@ -80,7 +80,7 @@ class Wmnt_Admin {
 
 		add_rewrite_rule(
 			'komanda/([A-Za-z0-9-]+)/?$',
-			'index.php?retype=$matches[1]',
+			'index.php?tbuser=$matches[1]',
 			'top'
 		);
 	}
@@ -134,7 +134,7 @@ class Wmnt_Admin {
 
 		if (!empty($tbuser)) {
 
-			set_query_var('reobj_data', $this->set_tbuser_data());
+			set_query_var('tbuser', $this->set_tbuser_data($tbuser));
 
 			return get_template_directory() . '/resources/views/tbuser.blade.php';
 
@@ -164,6 +164,11 @@ class Wmnt_Admin {
 	{
 		$retype = get_query_var( 'retype' );
 		$reobj = get_query_var( 'reobj' );
+		$tbuser = get_query_var( 'tbuser' );
+
+		if (!empty($tbuser)) {
+			$classes[] = 'tbuser';
+		}
 
 		if (!empty($retype) && !empty($reobj)) {
 			$classes[] = 'reobj';
@@ -212,9 +217,13 @@ class Wmnt_Admin {
 		];
 	}
 
-	private function set_tbuser_data()
+	private function set_tbuser_data($tbuser)
 	{
-		return [];
+		$user_id = intval(Arr::last(explode('-', $tbuser)));
+
+		return [
+			'tbuser' => $this->topbroker->users->getItem($user_id),
+		];
 	}
 
 	private function set_retype_data($retype)

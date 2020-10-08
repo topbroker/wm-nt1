@@ -34,6 +34,7 @@ module.exports = {
         '90px': '90px',
         '100px': '100px',
         '150px': '150px',
+        '160px': '160px',
       },
       colors: {
         black: {
@@ -93,6 +94,7 @@ module.exports = {
         '358px': '358px',
       },
       maxWidth: {
+        '160px': '160px',
         '200px': '200px',
         '300px': '300px',
         '485px': '485px',

@@ -26,6 +26,13 @@ $(document).ready(() => {
     },
   });
 
+  new Swiper('.swiper-container-member', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
   const map_el = document.getElementById('map');
 
   if (map_el) {
