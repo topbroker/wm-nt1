@@ -28,6 +28,11 @@ a {
     }
 }
 
+.screen-reader-text {
+    visibility: hidden;
+    position: absolute;
+}
+
 .tbuser,
 .page-template {
     background-color: #dedede;

@@ -1,0 +1,7 @@
+.nav-links {
+    display: flex;
+
+    & > div {
+        margin-right: 36px;
+    }
+}

@@ -18,4 +18,5 @@
 @import "sections/_swipers.css";
 @import "sections/_categories.css";
 
+@import "_navigation.css";
 @import "_template_about.css";

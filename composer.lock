@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebce1884cfb41168782fb20816c754f0",
+    "content-hash": "ebcddbcf29b9fa4885794c0865bd4a92",
     "packages": [
         {
             "name": "composer/installers",
@@ -676,6 +676,24 @@
             "time": "2020-07-14T19:22:52+00:00"
         },
         {
+            "name": "wpackagist-plugin/disable-comments",
+            "version": "1.11.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/disable-comments/",
+                "reference": "tags/1.11.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/disable-comments.1.11.0.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/disable-comments/"
+        },
+        {
             "name": "wpackagist-plugin/svg-support",
             "version": "2.3.18",
             "source": {
@@ -695,15 +713,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "15.0",
+            "version": "15.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/15.0"
+                "reference": "tags/15.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.15.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.15.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
