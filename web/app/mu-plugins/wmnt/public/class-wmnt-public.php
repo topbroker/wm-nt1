@@ -100,4 +100,22 @@ class Wmnt_Public {
 
 	}
 
+	public function query_vars($query_vars)
+    {
+        $query_vars[] = 'related_posts';
+
+        return $query_vars;
+    }
+
+    public function wp()
+    {
+        if (is_singular('post')) {
+            $args = [
+                'numberposts' => 3,
+                'post__not_in' => [get_queried_object_id()],
+            ];
+
+            set_query_var('related_posts', get_posts($args));
+        }
+    }
 }

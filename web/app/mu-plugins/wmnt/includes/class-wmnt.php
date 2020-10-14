@@ -181,6 +181,9 @@ class Wmnt {
 		// $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		// $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
+        $this->loader->add_filter('query_vars', $plugin_public, 'query_vars');
+        $this->loader->add_action( 'wp', $plugin_public, 'wp' );
+
 	}
 
 	/**
