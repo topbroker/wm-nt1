@@ -219,10 +219,28 @@ class Wmnt_Admin {
 
 	private function set_tbuser_data($tbuser)
 	{
+        $statuses = $this->topbroker->get('estates/record_statuses', []);
 		$user_id = intval(Arr::last(explode('-', $tbuser)));
+		$user_data = Collection::make($this->topbroker->users->getItem($user_id)->custom_fields);
+		$feedbacks = [];
+
+		// Broker feedback
+        $user_data->keys()->filter(function($str) {
+            return Str::startsWith($str, 'c_f_u_atsiliepimas_nr');
+        })->each(function($key) use (&$feedbacks, $user_data) {
+            $feedbacks[] = $user_data->get($key);
+        });
+
+        // Broker RE objects
+        $user_estates = $this->topbroker->estates->getList([
+            'user_id' => $user_id,
+        ]);
 
 		return [
 			'tbuser' => $this->topbroker->users->getItem($user_id),
+            'feedbacks' => array_filter($feedbacks),
+            'user_estates' => $user_estates,
+            'statuses' => $statuses,
 		];
 	}
 
