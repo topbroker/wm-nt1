@@ -21,7 +21,9 @@
 	                    'echo' => false
                     ]) !!}
                 </nav>
-                @include('components.nt-vertinimas-button')
+                @if(get_field('header', 'option')['nt_vertinimas'])
+                    @include('components.nt-vertinimas-button')
+                @endif
             </div>
         </div>
     </div>

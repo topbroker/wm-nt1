@@ -103,12 +103,21 @@ class Wmnt_Public {
 	public function query_vars($query_vars)
     {
         $query_vars[] = 'related_posts';
+        $query_vars[] = 'strings';
 
         return $query_vars;
     }
 
     public function wp()
     {
+        $strings = [];
+
+        foreach (get_field('strings', 'options') as $grp) {
+            $strings[sanitize_title($grp['key'])] = $grp['value'];
+        }
+
+        set_query_var('strings', $strings);
+
         if (is_singular('post')) {
             $args = [
                 'numberposts' => 3,

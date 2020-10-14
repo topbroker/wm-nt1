@@ -51,4 +51,11 @@ class Helpers
 
 		return $data;
 	}
+
+	public static function get_string($key)
+    {
+        $strings = get_query_var('strings');
+
+        return $strings[sanitize_title($key)] ?? $key;
+    }
 }

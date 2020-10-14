@@ -1,6 +1,12 @@
-@if(!empty($testimonial_items))
-    <div class="section-testimonials my-70px bg-cover bg-center" style="background-image: url(@asset('images/testimonials-bg.jpg'))">
-        <div class="md:hidden"><img src="@asset('images/testimonials-bg.jpg')" alt=""></div>
+<?php
+$testomonials = get_field('testimonials');
+?>
+
+@if(!empty($testimonial_items) && $testomonials['status'])
+    <div class="section-testimonials my-70px bg-cover bg-center" style="background-image: url({{ wp_get_attachment_image_url($testomonials['section_background_image'], 'xlarge') }})">
+        <div class="md:hidden">
+            <img src="{{ wp_get_attachment_image_url($testomonials['section_background_image'], 'xlarge') }}" alt="">
+        </div>
         <div class="container">
             <div class="section-testimonials-content w-full md:max-w-485px bg-white">
                 <div class="swiper-container-testimonials swiper-container">

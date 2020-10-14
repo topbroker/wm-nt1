@@ -1,9 +1,13 @@
-@if(!empty($logos))
+<?php
+$clients_grp = get_field('clients');
+?>
+
+@if(!empty($logos) && $clients_grp['status'])
     <div class="section-logos my-70px">
         <div class="container">
             <div class="section-heading">
                 <div class="section-heading-title-wrap">
-                    <h2 class="section-heading-title">Mumis pasitiki</h2>
+                    <h2 class="section-heading-title">{{ \wmnt\Helpers::get_string('Mumis pasitiki') }}</h2>
                 </div>
             </div>
             <div class="swiper-container swiper-container-logos">
