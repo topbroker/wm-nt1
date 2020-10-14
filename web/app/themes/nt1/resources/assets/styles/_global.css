@@ -28,6 +28,25 @@ a {
     }
 }
 
+.tbuser,
+.page-template {
+    background-color: #dedede;
+}
+
+.column-count-2 {
+    column-count: 1;
+
+    @screen lg {
+        column-count: 2;
+    }
+}
+
+.column-gap-100px {
+    @screen lg {
+        column-gap: 100px;
+    }
+}
+
 .section-heading {
     @apply bg-gray-1;
     border-bottom: 1px solid #1f1f21;
