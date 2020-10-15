@@ -1,6 +1,6 @@
 {
     "key": "group_5f87050a3a754",
-    "title": "Paslaugos",
+    "title": "Paslauga",
     "fields": [
         {
             "key": "field_5f870511832e9",
@@ -39,5 +39,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1602684343
+    "modified": 1602752115
 }

@@ -5,3 +5,92 @@
         margin-right: 36px;
     }
 }
+
+.main-menu {
+    .menu-item {
+        position: relative;
+
+        & > a {
+            @apply border-b-2 border-transparent inline-block;
+        }
+
+        &.current-menu-item > a,
+        &.current-menu-ancestor > a {
+            @apply border-b-2 border-gray-3 inline-block;
+        }
+
+        .sub-menu {
+            @apply shadow-custom-1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            width: 285px;
+            margin-top: 2rem;
+            padding: 1rem 0.5rem;
+            z-index: 100;
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            transition-delay: .5s;
+        }
+
+        &.menu-item-has-children {
+            & > a {
+                position: relative;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    margin-right: -15px;
+                    background-image: url('../images/down-arrow.svg');
+                    background-repeat: no-repeat;
+                    width: 10px;
+                    height: 10px;
+                    margin-top: 4px;
+                }
+
+                &:hover {
+                    & + .sub-menu {
+                        opacity: 1;
+                        visibility: visible;
+                        transition-delay: 0s;
+                    }
+                }
+
+                & + .sub-menu {
+                    &:hover {
+                        opacity: 1;
+                        visibility: visible;
+                        transition-delay: 0s;
+                    }
+
+                    a {
+                        line-height: 1.7;
+                        margin-bottom: 8px;
+                        display: inline-block;
+                        @apply border-b-2 border-transparent;
+
+                        &:hover {
+                            @apply border-b-2 border-gray-3;
+                        }
+                    }
+
+                    .current-menu-item a {
+                        @apply border-b-2 border-gray-3;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main-menu-mobile {
+    .menu-item-has-children > a {
+        color: #b3b3b3;
+        pointer-events: none;
+    }
+}

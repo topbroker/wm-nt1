@@ -1,0 +1,12 @@
+.circle {
+    @apply relative border border-black-3 rounded-full w-60px h-60px flex items-center justify-center;
+    flex: none;
+
+    &-inner {
+        @apply absolute top-0 right-0 w-full h-full border rounded-full;
+        border-color: #cbcbcb;
+        margin-top: 2px;
+        margin-right: -3px;
+        z-index: -1;
+    }
+}

@@ -16,7 +16,7 @@
                 <nav class="hidden md:flex space-x-10 text-14px uppercase">
                     {!! wp_nav_menu([
 	                    'theme_location' => 'primary_navigation',
-	                    'menu_class' => 'hidden md:flex space-x-10',
+	                    'menu_class' => 'main-menu hidden md:flex space-x-10',
 	                    'container' => '',
 	                    'echo' => false
                     ]) !!}
