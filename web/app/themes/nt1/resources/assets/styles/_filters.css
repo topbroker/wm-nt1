@@ -35,19 +35,19 @@
         max-width: 100%;
     }
 
-    &-input-select {
-        margin-left: -4px;
-
+    &-input-select,
+    &-input-text,
+    &-input-number {
         &:focus {
             outline: none;
         }
     }
 
+    &-input-select {
+        margin-left: -4px;
+    }
+
     &-input-number {
         max-width: 60px;
-
-        &:focus {
-            outline: none;
-        }
     }
 }

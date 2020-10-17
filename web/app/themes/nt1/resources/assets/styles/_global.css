@@ -17,6 +17,10 @@ a {
     max-width: 1135px;
     margin: 0 auto;
 
+    &-wide {
+        max-width: 1366px;
+    }
+
     @screen xl {
         @apply px-0;
     }
@@ -33,9 +37,16 @@ a {
     position: absolute;
 }
 
+.absolute-center {
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+}
+
 .single,
 .tbuser,
-.page-template {
+.page-template:not(.page-template-template-requestq) {
     background-color: #dedede;
 }
 

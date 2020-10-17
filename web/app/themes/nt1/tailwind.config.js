@@ -84,6 +84,7 @@ module.exports = {
         '160px': '160px',
         '200px': '200px',
         '220px': '220px',
+        '260px': '260px',
         '280px': '280px',
         '350px': '350px',
       },
@@ -96,12 +97,14 @@ module.exports = {
         '358px': '358px',
       },
       maxWidth: {
+        '100px': '100px',
         '160px': '160px',
         '200px': '200px',
         '260px': '260px',
         '300px': '300px',
         '485px': '485px',
         '537px': '537px',
+        '668px': '668px',
       },
       boxShadow: {
         'custom-1': '1px 1px 2px rgba(0, 0, 0, 0.16)',

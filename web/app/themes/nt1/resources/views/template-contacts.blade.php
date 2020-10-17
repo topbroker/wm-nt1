@@ -4,7 +4,6 @@
 
 <?php
 $contacts = get_field('contacts', 'options');
-$privacy_policy_link = get_field('privacy_policy_link', 'options');
 ?>
 
 @extends('layouts.app')
@@ -72,15 +71,8 @@ $privacy_policy_link = get_field('privacy_policy_link', 'options');
                   <textarea class="bg-gray-2 w-full h-220px p-4"></textarea>
               </label>
               <div class="flex justify-between mt-6">
-                  <label class="w-full max-w-300px text-12px flex">
-                      <input type="checkbox" class="flex-none mt-1">
-                      <span class="ml-2">
-                          {!! $privacy_policy_link !!}
-                      </span>
-                  </label>
-                  <button type="submit" class="mb-4 md:mb-0 bg-red-1 hover:bg-red-2 px-10 py-4 md:py-2 text-white text-14px uppercase rounded-full shadow-lg">
-                      {{ \wmnt\Helpers::get_string('Siųsti') }}
-                  </button>
+                  @include('components.tos-agree')
+                  @include('components.submit-btn')
               </div>
           </div>
       </div>
