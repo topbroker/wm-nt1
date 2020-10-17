@@ -14,6 +14,9 @@ module.exports = {
         montserrat: ['Montserrat', ...defaultTheme.fontFamily.serif],
         open: ['Open Sans', ...defaultTheme.fontFamily.sans],
       },
+      zIndex: {
+        150: '150',
+      },
       spacing: {
         '4px': '4px',
         '5px': '5px',

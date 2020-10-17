@@ -46,7 +46,7 @@
         x-transition:leave="duration-100 ease-in"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-95"
-        class="absolute z-50 top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden">
+        class="absolute z-150 top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden">
         <div class="rounded-lg shadow-lg">
             <div class="rounded-lg shadow-xs bg-white divide-y-2 divide-gray-50">
                 <div class="pt-5 pb-6 px-5 space-y-6">
