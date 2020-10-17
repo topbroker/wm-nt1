@@ -477,9 +477,25 @@
             "endpoint": 0
         },
         {
-            "key": "field_5f8969ca857aa",
-            "label": "Kontaktai",
-            "name": "contacts",
+            "key": "field_5f8aa7c09d2a5",
+            "label": "Theme",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5f8aa7ca9d2a6",
+            "label": "Theme",
+            "name": "theme",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -492,9 +508,9 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5f8969e4857ab",
-                    "label": "Telefonas",
-                    "name": "phone",
+                    "key": "field_5f8aa8149d2a7",
+                    "label": "Color 1",
+                    "name": "color_1",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -511,10 +527,10 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5f8969f8857ac",
-                    "label": "El. paštas",
-                    "name": "email",
-                    "type": "email",
+                    "key": "field_5f8aa8249d2a8",
+                    "label": "Color 2",
+                    "name": "color_2",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -526,13 +542,14 @@
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
-                    "append": ""
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
-                    "key": "field_5f896a0f857ad",
-                    "label": "Adresas",
-                    "name": "address_lines",
-                    "type": "repeater",
+                    "key": "field_5f8aa8279d2a9",
+                    "label": "Color 3",
+                    "name": "color_3",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -541,38 +558,17 @@
                         "class": "",
                         "id": ""
                     },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "table",
-                    "button_label": "",
-                    "sub_fields": [
-                        {
-                            "key": "field_5f896a2a857ae",
-                            "label": "Line",
-                            "name": "line",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ]
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
-                    "key": "field_5f896a4f857af",
-                    "label": "Rekvizitai",
-                    "name": "requisites",
-                    "type": "repeater",
+                    "key": "field_5f8aa9b0dfb4f",
+                    "label": "Color 4",
+                    "name": "color_4",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -581,32 +577,30 @@
                         "class": "",
                         "id": ""
                     },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "table",
-                    "button_label": "",
-                    "sub_fields": [
-                        {
-                            "key": "field_5f896a5d857b0",
-                            "label": "Line",
-                            "name": "line",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ]
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5f8aaa147e1ee",
+                    "label": "Color 5",
+                    "name": "color_5",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -628,5 +622,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1602841628
+    "modified": 1602923045
 }

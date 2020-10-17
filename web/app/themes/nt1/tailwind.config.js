@@ -38,26 +38,26 @@ module.exports = {
       },
       colors: {
         black: {
-          1: '#1f1f21',
+          1: 'var(--theme-color-4)',
           2: '#233039',
           3: '#454142',
         },
         red: {
-          1: '#f1525c',
+          1: 'var(--theme-color-1)',
           2: '#f06770',
         },
         gray: {
-          1: '#f0f0f0',
+          1: 'var(--theme-color-5)',
           2: '#dedede',
           3: '#e4e4e4',
           4: '#898787',
           5: '#ddddd6',
         },
         blue: {
-          1: '#465bf2',
+          1: 'var(--theme-color-3)',
         },
         yellow: {
-          1: '#f2d36b',
+          1: 'var(--theme-color-2)',
         },
         brown: {
           1: '#454142',
