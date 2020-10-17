@@ -60,8 +60,10 @@ class Wmnt_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-		$this->topbroker = new TopBrokerApi('3f67c759bf4fc791b', 'a5e79e85-9624-49c5-a9cc-261e270ff307');
+		$top_broker_api_user = get_option('options_top_broker_api_credentials_user');
+		$top_broker_api_password = get_option('options_top_broker_api_credentials_password');
 
+		$this->topbroker = new TopBrokerApi($top_broker_api_user, $top_broker_api_password);
 	}
 
 	public function init()
