@@ -527,6 +527,25 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_5f8ab197c72dc",
+                    "label": "Color 1 hover",
+                    "name": "color_1_hover",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_5f8aa8249d2a8",
                     "label": "Color 2",
                     "name": "color_2",
@@ -622,5 +641,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1602923045
+    "modified": 1602924965
 }

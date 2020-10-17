@@ -14,6 +14,7 @@
     <style>
         :root {
             --theme-color-1: <?php echo $theme['color_1'] ?? '#f1525c' ?>;
+            --theme-color-1-hover: <?php echo $theme['color_1_hover'] ?? '#f06770' ?>;
             --theme-color-2: <?php echo $theme['color_2'] ?? '#f2d36b' ?>;
             --theme-color-3: <?php echo $theme['color_3'] ?? '#465bf2' ?>;
             --theme-color-4: <?php echo $theme['color_4'] ?? '#1f1f21' ?>;

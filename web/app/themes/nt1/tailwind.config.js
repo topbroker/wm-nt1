@@ -47,7 +47,7 @@ module.exports = {
         },
         red: {
           1: 'var(--theme-color-1)',
-          2: '#f06770',
+          2: 'var(--theme-color-1-hover)',
         },
         gray: {
           1: 'var(--theme-color-5)',
