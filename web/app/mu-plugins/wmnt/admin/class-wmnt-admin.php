@@ -57,6 +57,21 @@ class Wmnt_Admin {
 	 */
 	public function __construct( string $plugin_name, string $version ) {
 
+        if (!session_id()) {
+            session_start();
+
+            if (isset($_SESSION['topbroker_flash'])) {
+                $_SESSION['topbroker_flash'] = $_SESSION['topbroker_flash'] + 1;
+            }
+
+            if (!isset($_SESSION['topbroker_flash']) || $_SESSION['topbroker_flash'] > 1) {
+                unset($_SESSION['topbroker_flash']);
+                unset($_SESSION['topbroker_form_data']);
+                unset($_SESSION['topbroker_error']);
+                unset($_SESSION['topbroker_success']);
+            }
+        }
+
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
@@ -182,6 +197,92 @@ class Wmnt_Admin {
 
 		return $classes;
 	}
+
+	public function post_contact_form()
+    {
+        $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+        $inquiry = filter_var($_POST['inquiry'], FILTER_SANITIZE_STRING);
+        $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $privacy_policy = filter_var($_POST['privacy_policy'], FILTER_SANITIZE_NUMBER_INT);
+        $main_contact_person = get_field('main_contact_person', 'options');
+
+        $_SESSION['topbroker_flash'] = 0;
+
+        if (empty($name) || empty($phone) || empty($privacy_policy)) {
+            $_SESSION['topbroker_form_data'] = [
+                'inquiry' => $inquiry,
+                'phone' => $phone,
+                'email' => $email,
+                'name' => $name,
+            ];
+
+            $_SESSION['topbroker_error'] = ['message' => 'Užpildykite visus provalomus laukus.'];
+
+            $location = $_SERVER['HTTP_REFERER'];
+            wp_safe_redirect($location);
+            exit();
+        }
+
+        // Create contact person if not exist
+        try {
+
+            $contact = $this->topbroker->contacts->getItem(null, [
+                'email' => $email,
+            ]);
+            $contact_first = Arr::first($contact);
+            $contact_id = $contact_first->id;
+
+            if (empty($contact)) {
+                $created_contact = $this->topbroker->contacts->createItem([
+                    'contact_type' => 'physical_person',
+                    'name' => $name,
+                    'phone' => $phone,
+                    'email' => $email,
+                    'user_id' => $main_contact_person,
+                ]);
+
+                $contact_id = $created_contact->id;
+            }
+
+            // Create inquiry, assign to contact
+            try {
+
+                $created_inquiry = $this->topbroker->inquiries->createItem([
+                    'title' => 'Kontaktai: ' . $name . ' ' . $email,
+                    'user_id' => $main_contact_person,
+//                    'custom_fields' => [
+//                        'c_f_c_komentaras' => $inquiry,
+//                    ],
+                ]);
+
+                if ($created_inquiry) {
+                    $this->topbroker->inquiries->assignContact($created_inquiry->id, [
+                        'contact_id' => $contact_id
+                    ]);
+                }
+
+            } catch (Exception $exception) {
+                // TODO: set error flash data
+                var_dump($exception->getMessage()); die;
+            }
+
+        } catch (Exception $exception) {
+
+            $_SESSION['topbroker_error'] = ['message' => 'Patikrinkite ar gerai užpildėte laukus!'];
+
+            $location = $_SERVER['HTTP_REFERER'];
+            wp_safe_redirect($location);
+            exit();
+
+        }
+
+        $_SESSION['topbroker_success'] = ['message' => 'Forma išsiųsta, dėkojame!'];
+
+        $location = $_SERVER['HTTP_REFERER'];
+        wp_safe_redirect($location);
+        exit();
+    }
 
 	private function set_cities()
 	{

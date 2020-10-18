@@ -10,9 +10,15 @@ class Komanda extends Composer
 {
 	private $topbroker;
 
+	private $top_broker_api_user;
+	private $top_broker_api_password;
+
 	public function __construct()
 	{
-		$this->topbroker = new TopBrokerApi('3f67c759bf4fc791b', 'a5e79e85-9624-49c5-a9cc-261e270ff307');
+        $this->top_broker_api_user = get_option('options_top_broker_api_credentials_user');
+        $this->top_broker_api_password = get_option('options_top_broker_api_credentials_password');
+
+		$this->topbroker = new TopBrokerApi($top_broker_api_user, $top_broker_api_password);
 	}
 
 	/**
@@ -61,7 +67,7 @@ class Komanda extends Composer
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 			CURLOPT_CUSTOMREQUEST => 'GET',
 			CURLOPT_HTTPHEADER => [
-				"Authorization: Basic " . base64_encode('3f67c759bf4fc791b' . ':' . 'a5e79e85-9624-49c5-a9cc-261e270ff307')
+				"Authorization: Basic " . base64_encode($this->top_broker_api_user . ':' . $this->top_broker_api_password)
 			],
 		];
 

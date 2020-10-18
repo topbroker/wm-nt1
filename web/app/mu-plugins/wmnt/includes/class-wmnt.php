@@ -165,6 +165,9 @@ class Wmnt {
 		$this->loader->add_filter('wpseo_title', $plugin_admin, 'wpseo_title');
 		$this->loader->add_filter('body_class', $plugin_admin, 'body_class');
 
+		$this->loader->add_action('admin_post_nopriv_contact_form', $plugin_admin, 'post_contact_form');
+		$this->loader->add_action('admin_post_contact_form', $plugin_admin, 'post_contact_form');
+
 	}
 
 	/**

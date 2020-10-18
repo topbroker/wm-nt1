@@ -48,28 +48,39 @@ $contacts = get_field('contacts', 'options');
               </div>
           </div>
       </div>
-      <form action="" method="post">
+      @if(isset($_SESSION['topbroker_error']) || isset($_SESSION['topbroker_success']))
+          <div class="my-8 p-4 bg-white shadow-custom-1">
+              @if(isset($_SESSION['topbroker_error']))
+                <div class="text-red-1">{{ $_SESSION['topbroker_error']['message'] }}</div>
+              @endif
+              @if(isset($_SESSION['topbroker_success']))
+                      <div class="text-green-1">{{ $_SESSION['topbroker_success']['message'] }}</div>
+              @endif
+          </div>
+      @endif
+      <form action="{{ esc_url(admin_url('admin-post.php')) }}" method="post">
+          <input type="hidden" name="action" value="contact_form">
           <div class="shadow-custom-1 bg-white p-30px pb-70px flex flex-col lg:flex-row items-center lg:space-x-60px">
               <div class="block lg:hidden text-20px uppercase mb-6">{{ \wmnt\Helpers::get_string('Registruokitės konsultacijai') }}</div>
               <div class="flex flex-col w-full flex-none lg:max-w-260px space-y-8 mb-8 lg:mb-0">
                   <label class="flex-1 border-b border-black-1 flex flex-col">
                       <span class="uppercase text-14px font-light">{{ \wmnt\Helpers::get_string('Vardas') }} *</span>
-                      <input type="text" name="name" class="bg-transparent focus:outline-none">
+                      <input type="text" name="name" class="bg-transparent focus:outline-none" value="{{ $_SESSION['topbroker_form_data']['name'] ?? null }}" required>
                   </label>
                   <label class="flex-1 border-b border-black-1 flex flex-col">
                       <span class="uppercase text-14px font-light">{{ \wmnt\Helpers::get_string('Tel. nr.') }} *</span>
-                      <input type="text" name="name" class="bg-transparent focus:outline-none">
+                      <input type="text" name="phone" class="bg-transparent focus:outline-none" value="{{ $_SESSION['topbroker_form_data']['phone'] ?? null }}" required>
                   </label>
                   <label class="flex-1 border-b border-black-1 flex flex-col">
                       <span class="uppercase text-14px font-light">{{ \wmnt\Helpers::get_string('El. pašto adresas') }}</span>
-                      <input type="text" name="name" class="bg-transparent focus:outline-none">
+                      <input type="text" name="email" class="bg-transparent focus:outline-none" value="{{ $_SESSION['topbroker_form_data']['email'] ?? null }}">
                   </label>
               </div>
               <div class="w-full lg:w-auto flex-1">
                   <div class="hidden lg:block text-24px uppercase mb-4">{{ \wmnt\Helpers::get_string('Registruokitės konsultacijai') }}</div>
                   <label>
                       <span class="uppercase block font-light mb-1">{{ \wmnt\Helpers::get_string('pastabos') }}</span>
-                      <textarea class="bg-gray-2 w-full h-220px p-4"></textarea>
+                      <textarea name="inquiry" class="bg-gray-2 w-full h-220px p-4">{{ $_SESSION['topbroker_form_data']['inquiry'] ?? null }}</textarea>
                   </label>
                   <div class="flex justify-between mt-6">
                       @include('components.tos-agree')

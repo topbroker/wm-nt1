@@ -62,6 +62,9 @@ module.exports = {
         yellow: {
           1: 'var(--theme-color-2)',
         },
+        green: {
+          1: '#519872',
+        },
         brown: {
           1: '#454142',
         },
