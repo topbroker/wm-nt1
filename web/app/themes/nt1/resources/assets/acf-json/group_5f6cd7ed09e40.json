@@ -35,7 +35,7 @@
             "sub_fields": [
                 {
                     "key": "field_5f9299fa3abdd",
-                    "label": "Statusas",
+                    "label": "Visibility",
                     "name": "status",
                     "type": "true_false",
                     "instructions": "",
@@ -49,8 +49,8 @@
                     "message": "",
                     "default_value": 1,
                     "ui": 1,
-                    "ui_on_text": "Įjungta",
-                    "ui_off_text": "Išjungta"
+                    "ui_on_text": "On",
+                    "ui_off_text": "Off"
                 },
                 {
                     "key": "field_5f6ce38d9c580",
@@ -415,5 +415,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1603443226
+    "modified": 1603448163
 }
