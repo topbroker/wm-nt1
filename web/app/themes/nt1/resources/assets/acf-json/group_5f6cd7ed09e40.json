@@ -34,6 +34,25 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_5f9299fa3abdd",
+                    "label": "Statusas",
+                    "name": "status",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "Įjungta",
+                    "ui_off_text": "Išjungta"
+                },
+                {
                     "key": "field_5f6ce38d9c580",
                     "label": "Background image",
                     "name": "background_image",
@@ -389,12 +408,12 @@
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1602712644
+    "modified": 1603443226
 }
