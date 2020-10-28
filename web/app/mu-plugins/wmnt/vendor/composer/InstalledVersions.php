@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '5ac0d9caadec8e5dd9d03c5d6babb0c922649e1d',
+    'reference' => 'e991a7b576a307b52827e50b590e3d02a7573db2',
     'name' => '__root__',
   ),
   'versions' => 
@@ -31,7 +31,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '5ac0d9caadec8e5dd9d03c5d6babb0c922649e1d',
+      'reference' => 'e991a7b576a307b52827e50b590e3d02a7573db2',
     ),
     'doctrine/inflector' => 
     array (
@@ -295,12 +295,12 @@ private static $installed = array (
     ),
     'topbroker/topbroker-php' => 
     array (
-      'pretty_version' => '1.1.0',
-      'version' => '1.1.0.0',
+      'pretty_version' => '1.2.0',
+      'version' => '1.2.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '91ac656c53f6fdaaeb786a2f9e58ceba39dff533',
+      'reference' => '57a39a7e6939b2de72d8e0d8cda37f36de9decb6',
     ),
     'voku/portable-ascii' => 
     array (

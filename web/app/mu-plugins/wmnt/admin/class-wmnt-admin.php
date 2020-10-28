@@ -240,32 +240,32 @@ class Wmnt_Admin {
                     'phone' => $phone,
                     'email' => $email,
                     'user_id' => $main_contact_person,
+                    'custom_fields' => [
+                        'c_f_c_komentaras' => $inquiry,
+                    ],
                 ]);
 
                 $contact_id = $created_contact->id;
             }
 
             // Create inquiry, assign to contact
-            try {
-
-                $created_inquiry = $this->topbroker->inquiries->createItem([
-                    'title' => 'Kontaktai: ' . $name . ' ' . $email,
-                    'user_id' => $main_contact_person,
-//                    'custom_fields' => [
-//                        'c_f_c_komentaras' => $inquiry,
-//                    ],
-                ]);
-
-                if ($created_inquiry) {
-                    $this->topbroker->inquiries->assignContact($created_inquiry->id, [
-                        'contact_id' => $contact_id
-                    ]);
-                }
-
-            } catch (Exception $exception) {
-                // TODO: set error flash data
-                var_dump($exception->getMessage()); die;
-            }
+//            try {
+//
+//                $created_inquiry = $this->topbroker->inquiries->createItem([
+//                    'title' => 'Kontaktai: ' . $name . ' ' . $email,
+//                    'user_id' => $main_contact_person,
+//                ]);
+//
+//                if ($created_inquiry) {
+//                    $this->topbroker->inquiries->assignContact($created_inquiry->id, [
+//                        'contact_id' => $contact_id
+//                    ]);
+//                }
+//
+//            } catch (Exception $exception) {
+//                // TODO: set error flash data
+//                var_dump($exception->getMessage()); die;
+//            }
 
         } catch (Exception $exception) {
 

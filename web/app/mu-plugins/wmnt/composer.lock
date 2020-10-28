@@ -1672,16 +1672,16 @@
         },
         {
             "name": "topbroker/topbroker-php",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/topbroker/topbroker-php.git",
-                "reference": "91ac656c53f6fdaaeb786a2f9e58ceba39dff533"
+                "reference": "57a39a7e6939b2de72d8e0d8cda37f36de9decb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/topbroker/topbroker-php/zipball/91ac656c53f6fdaaeb786a2f9e58ceba39dff533",
-                "reference": "91ac656c53f6fdaaeb786a2f9e58ceba39dff533",
+                "url": "https://api.github.com/repos/topbroker/topbroker-php/zipball/57a39a7e6939b2de72d8e0d8cda37f36de9decb6",
+                "reference": "57a39a7e6939b2de72d8e0d8cda37f36de9decb6",
                 "shasum": ""
             },
             "require": {
@@ -1713,9 +1713,9 @@
             "description": "TopBroker API Client",
             "support": {
                 "issues": "https://github.com/topbroker/topbroker-php/issues",
-                "source": "https://github.com/topbroker/topbroker-php/tree/1.1.0"
+                "source": "https://github.com/topbroker/topbroker-php/tree/1.2.0"
             },
-            "time": "2020-05-13T13:48:32+00:00"
+            "time": "2020-10-23T09:38:34+00:00"
         },
         {
             "name": "voku/portable-ascii",
