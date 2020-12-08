@@ -9,6 +9,7 @@ $(document).ready(() => {
     breakpoints: {
       768: {
         freeMode: false,
+        centerInsufficientSlides: true,
         slidesPerView: 6,
         spaceBetween: 30,
       },
