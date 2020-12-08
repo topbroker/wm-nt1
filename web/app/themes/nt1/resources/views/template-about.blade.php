@@ -13,9 +13,9 @@ $title = get_field('title');
 @section('content')
     <div class="container py-60px">
         @while(have_posts()) @php(the_post())
-        <div class="prose max-w-none">
-            {!! get_the_content() !!}
-        </div>
+            <div class="prose max-w-none mb-60px">
+                {!! get_the_content() !!}
+            </div>
         @endwhile
         @if(!empty($title))
             <div class="relative mb-8">
